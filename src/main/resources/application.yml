@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/rent-a-car-db
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: 123456789
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: on
+    properties:
+      hibernate:
+        format_sql=true:
+  flyway:
+    locations: filesystem:db/migration
+    schemas: public
+    user: postgres
+    password: 123456789
+    url: jdbc:postgresql://localhost:5432/rent-a-car-db
+  thymeleaf:
+    suffix: .html
+    cache: false

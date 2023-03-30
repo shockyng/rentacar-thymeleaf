@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="h-100" data-bs-theme="dark"  xmlns:th="https://thymeleaf.org">
+<html lang="en" class="h-100" data-bs-theme="dark" xmlns:th="https://thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -80,6 +80,7 @@
             --bs-btn-active-bg: #5a23c8;
             --bs-btn-active-border-color: #5a23c8;
         }
+
         .bd-mode-toggle {
             z-index: 1500;
         }
@@ -117,18 +118,48 @@
     </header>
 
     <main class="px-3">
-        <h1>Rent a car</h1>
+        <h1>Register Car</h1>
         <p class="lead">This project intend to be a little demonstration on how to use Spring-boot with Thymeleaf</p>
-        <p class="lead">
-            <a href="#" class="btn btn-lg btn-light fw-bold border-white bg-white">List all resources</a>
-        </p>
+
+        <form class="row g-3 needs-validation mt-large" action="#" th:action="@{/register-car}" method="post" th:object="${car}">
+            <div class="col-md-4">
+                <label for="validationCustom01" class="form-label">Car name</label>
+                <input th:field="*{name}" type="text" class="form-control" id="validationCustom01" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <label for="validationCustom02" class="form-label">Car Year</label>
+                <input th:field="*{year}" type="number" minlength="4" maxlength="4" class="form-control" id="validationCustom02" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <label for="validationCustom04" class="form-label">Car Engine</label>
+                <select th:field="*{engine}" class="form-select" id="validationCustom04" required>
+                    <option selected value="0">Choose...</option>
+                    <option th:each="engine : ${engines}" th:value="${engine.id}" th:utext="${engine.name}"/>
+                </select>
+                <div class="invalid-feedback">
+                    Please select a valid state.
+                </div>
+            </div>
+
+            <div class="col-12 mt-large">
+                <button class="btn btn-primary" type="submit">Register Car</button>
+            </div>
+        </form>
     </main>
 
     <footer class="mt-auto text-white-50">
-        <p>Template made with <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://www.linkedin.com/in/shockyng/" class="text-white">@shockyng</a>.</p>
+        <p>Template made with <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a
+                href="https://www.linkedin.com/in/shockyng/" class="text-white">@shockyng</a>.</p>
     </footer>
 </div>
-
 
 
 </body>

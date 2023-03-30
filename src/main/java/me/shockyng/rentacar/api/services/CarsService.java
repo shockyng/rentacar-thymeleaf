@@ -18,4 +18,8 @@ public class CarsService {
     public List<Car> getAllCars() {
         return repository.findAllCarsWithEngine();
     }
+
+    public Car createCar(Car car) {
+            return repository.save(car);
+    }
 }

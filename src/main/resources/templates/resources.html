@@ -108,10 +108,10 @@
         <div>
             <h3 class="float-md-start mb-0">Shockyng</h3>
             <nav class="nav nav-masthead justify-content-center float-md-end">
-                <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="#">Home</a>
-                <a class="nav-link fw-bold py-1 px-0" href="#">Resouces</a>
-                <a class="nav-link fw-bold py-1 px-0" href="#">Cars</a>
-                <a class="nav-link fw-bold py-1 px-0" href="#">Engines</a>
+                <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" th:href="@{/}">Home</a>
+                <a class="nav-link fw-bold py-1 px-0" th:href="@{/resources}">Resouces</a>
+                <a class="nav-link fw-bold py-1 px-0" th:href="@{/register-car}">Register Car</a>
+                <a class="nav-link fw-bold py-1 px-0" th:href="@{/engines}">Engines</a>
             </nav>
         </div>
     </header>
@@ -127,6 +127,7 @@
                 <th scope="col">Car name</th>
                 <th scope="col">Engine Name</th>
                 <th scope="col">Year</th>
+                <th scope="col">Action</th>
             </tr>
             </thead>
             <tbody>
@@ -135,6 +136,10 @@
                 <td th:text="${car.name}" />
                 <td th:text="${car.engine.name}" />
                 <td th:text="${car.year}" />
+                <td>
+                    <a class="btn btn-primary">Edit</a>
+                    <a class="btn btn-danger">Delete</a>
+                </td>
             </tr>
             </tbody>
         </table>

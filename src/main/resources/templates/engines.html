@@ -117,11 +117,23 @@
     </header>
 
     <main class="px-3">
-        <h1>Rent a car</h1>
+        <h1>Engines Available</h1>
         <p class="lead">This project intend to be a little demonstration on how to use Spring-boot with Thymeleaf</p>
-        <p class="lead">
-            <a href="#" class="btn btn-lg btn-light fw-bold border-white bg-white">List all resources</a>
-        </p>
+
+        <table class="table mt-large">
+            <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Engine</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="engine : ${engines}">
+                <th scope="row" th:text="${engine.id}" />
+                <td th:text="${engine.name}" />
+            </tr>
+            </tbody>
+        </table>
     </main>
 
     <footer class="mt-auto text-white-50">

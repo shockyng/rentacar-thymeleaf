@@ -1,4 +1,7 @@
 spring:
+  devtools:
+    livereload:
+      port: 9000
   datasource:
     url: jdbc:postgresql://localhost:5432/rent-a-car-db
     driver-class-name: org.postgresql.Driver
